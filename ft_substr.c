@@ -1,39 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/22 12:26:48 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/22 13:04:58 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	int		i;
-	char	*matrix;
+	int		j;
+	char	*substring;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
-	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
-	}
-	return (matrix);
-}
-/*
-int	main(void)
-{
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	j = 0;
+	while (s[i] != start && i < len);
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
 }
-*/
+
+int	main(int argc, char **argv)
+{
+	
+}

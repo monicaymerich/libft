@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/09 12:14:54 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 14:39:35 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isalpha(int c)
 {
-	int		i;
-	char	*matrix;
-
-	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	if (c >= 65 && c <= 90)
 	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
+		return (1);
 	}
-	return (matrix);
+	else if (c >= 97 && c <= 122)
+	{
+		return (1);
+	}
+	return (0);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	int prueba = 123;
+	int res;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	res = ft_isalpha(prueba);
+	printf("Res ft_isalpha: %d\n", res);
+	res = isalpha(prueba);
+	printf("Res isalpha: %d\n", res);
+	return (0);
 }
 */

@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/17 15:14:19 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 15:16:48 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_tolower(int c) //Converteix en majuscula una lletra minuscula
 {
-	int		i;
-	char	*matrix;
-
-	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
-	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
-	}
-	return (matrix);
+	if (c >= 'A' && c <= 'Z')
+		c = c + ' ';
+	return (c);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	char	test;
+	char	res;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	test = 'Z';
+	res = ft_tolower(test);
+	printf("Res funcio meva: %c\n", res);
+	res = tolower(test);
+	printf("Res funcio original: %c\n", res);
+	return (0);
 }
 */

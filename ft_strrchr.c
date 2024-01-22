@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/17 15:43:20 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/18 12:33:19 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strrchr(const char *s, int c)
 {
 	int		i;
-	char	*matrix;
+	char	*res;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	res = NULL;
+	while (s[i] != '\0')
 	{
-		matrix[i] = *(char *)malloc(size);
+		if (s[i] == c)
+			res = &((char *)s)[i];
 		i++;
 	}
-	return (matrix);
+	return (res);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	char	test[20] = "Holalala";
+	char	*res;
+	int		c = 'l';
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	res = ft_strrchr(test, c);
+	printf("res = %s\n", res);
+	res = strrchr(test, c);
+	printf("res = %s\n", res);
+	return(0);
 }
 */

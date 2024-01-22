@@ -1,39 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/09 16:06:30 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 15:00:05 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+size_t	ft_strlen(const char *s)
 {
-	int		i;
-	char	*matrix;
+	size_t	total;
+	char	*aux;
 
-	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	total = 0;
+	aux = (char *)s;
+	while (*aux != '\0')
 	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
+		total++;
+		aux++;
 	}
-	return (matrix);
+	return (total);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	const char *test = "hola .!@ ";
+	size_t resultat;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	resultat = ft_strlen(test);
+	printf("%zu\n", resultat);
+	resultat = strlen(test);
+	printf("%zu\n", resultat);
+	return (0);
 }
 */

@@ -1,39 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/10 16:12:10 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 14:51:10 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
-	int		i;
-	char	*matrix;
+	size_t	i;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	while (i < n)
 	{
-		matrix[i] = *(char *)malloc(size);
+		((char *)dst)[i] = ((char *)src)[i];
 		i++;
 	}
-	return (matrix);
+	return (dst);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	char	*src = "Hola";
+	char	*dest;	
+	char	*test;
+	size_t	n = 6;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	dest = malloc(sizeof(char) * 20);
+	test = ft_memcpy((void *)dest, (const void *)src, n);
+	printf("%s\n", test);
+	test = memcpy((void *)dest, (const void *)src, n);
+	printf("%s\n", test);
+	free (dest);
+	return(0);
 }
 */

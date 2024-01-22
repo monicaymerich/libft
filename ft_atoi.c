@@ -1,5 +1,16 @@
-#include <stdlib.h>
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/22 11:50:56 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/22 12:23:43 by maymeric         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
 
 int	ft_atoi(const char *str)
 {
@@ -8,30 +19,29 @@ int	ft_atoi(const char *str)
 	int	sign;
 
 	i = 0;
-	res = 0; //Mirar que passa si envien un str no valid
+	res = 0;
 	sign = 1;
-	if(str[i] == '-')
+	if (str[i] == '-')
 	{
 		sign = -1;
 		i++;
 	}
-	while(str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
+	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		res = res * 10 + (str[i] - '0');
 		i++;
 	}
-	return (res*sign);
+	return (res * sign);
 }
-
-int	main(void)
+/*
+int	main(int argc, char **argv)
 {
-	char	*numascii = "2147483649";
 	int	numint;
 
-	
-	numint = ft_atoi(numascii);
+	numint = ft_atoi(argv[1]);
 	printf("Meu atoi: %d\n", numint);
-	numint = atoi(numascii);
+	numint = atoi(argv[1]);
 	printf("Atoi original: %d\n", numint);
 	return(0);
 }
+*/

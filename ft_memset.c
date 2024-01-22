@@ -1,39 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/09 18:45:16 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 14:53:31 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	int		i;
-	char	*matrix;
+	size_t	i;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	while (i < len)
 	{
-		matrix[i] = *(char *)malloc(size);
+		((unsigned char *)b)[i] = c;
 		i++;
 	}
-	return (matrix);
+	return (b);
 }
-/*
-int	main(void)
-{
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+/*
+int main()
+{
+	char *test;
+	char *resultat;
+
+	test = malloc(sizeof(char) * 10);
+	resultat = ft_memset((void *)test, 'A', 3);
+	printf("ft_memset = %s\n", resultat);
+	resultat = memset((void *)test, 'A', 3);
+	printf("memset = %s\n", resultat);
+	free(resultat);
+	return (0);
 }
 */

@@ -1,39 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/09 15:52:31 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 15:09:00 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isascii(int c)
 {
-	int		i;
-	char	*matrix;
-
-	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	if (c >= 0 && c <= 127)
 	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
+		return (1);
 	}
-	return (matrix);
+	return (0);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	int prueba = 128;
+	int res;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	res = ft_isascii(prueba);
+	printf("Res ft_isascii: %d\n", res);
+	res = isascii(prueba);
+	printf("Res isascii: %d\n", res);
+	return (0);
 }
 */

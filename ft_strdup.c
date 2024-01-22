@@ -1,39 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.cc                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/22 11:52:40 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/22 12:22:09 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+char	*ft_strdup(const char *s1)
 {
 	int		i;
-	char	*matrix;
+	char	*ret;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	if (s1)
 	{
-		matrix[i] = *(char *)malloc(size);
+		while (s1[i] != '\0')
+			i++;
 		i++;
 	}
-	return (matrix);
+	ret = (char *)malloc(i);
+	i = 0;
+	while (s1[i] != '\0')
+	{
+		ret[i] = s1[i];
+		i++;
+	}
+	ret[i] = '\0';
+	if (ret == NULL)
+		return (NULL);
+	return (ret);
 }
 /*
-int	main(void)
+int	main(int argc, char **argv)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
-
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	char *result;
+	result =ft_strdup(argv[1]);
+  	printf("Result = %s\n", result);
+	result = strdup(argv[1]);
+ 	printf("Result original = %s\n", result);
+	return (0);	
 }
 */

@@ -1,39 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:25:01 by maymeric         ###   ########.fr       */
+/*   Created: 2024/01/09 12:16:52 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/17 15:10:34 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size)
+int	ft_isdigit(int c)
 {
-	int		i;
-	char	*matrix;
-
-	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
-	{
-		matrix[i] = *(char *)malloc(size);
-		i++;
-	}
-	return (matrix);
+	if (c >= '0' && c <= '9')
+		return (1);
+	return (0);
 }
 /*
 int	main(void)
 {
-	size_t	files = 3;
-	size_t	columnes = 2;
-	char	*matrix;	
+	int prueba = 58;
+	int res;
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	res = ft_isdigit(prueba);
+	printf("Res ft_isigit: %d\n", res);
+	res = isdigit(prueba);
+	printf("Res isdigit: %d\n", res);
+	return (0);
 }
 */
