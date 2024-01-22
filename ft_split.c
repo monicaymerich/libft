@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 16:11:46 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/22 17:26:35 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ char	**ft_split(char const *s, char c)
 
 	i = 0;
 	files = 0;
+	//Contar cuantes paraules reals hi ha i quina es la llargada maxima
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
@@ -30,7 +31,7 @@ char	**ft_split(char const *s, char c)
 		else
 			columnes++;
 	}
-	res = ft_calloc(files, columnes); //Perque el calloc retorna un 'unic punter si haurien de ser dos?
+	res = fer matriu de (files, columnes); //Perque el calloc retorna un 'unic punter si haurien de ser dos?
 	//falta guardar cada paraula en el seu lloc
 	return (res);
 }
