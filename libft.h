@@ -20,7 +20,7 @@
 # include <string.h>
 # include <strings.h>
 # include <ctype.h>
-# include <xlocale.h>
+# include <locale.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);

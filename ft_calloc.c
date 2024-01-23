@@ -14,26 +14,49 @@
 
 void	*ft_calloc(size_t count, size_t size) //multiplicar count * size mateix q malloc pero plenar de 0
 {
+	size_t		total;
+	char	*ret;
 	int		i;
-	char	*matrix;
 
 	i = 0;
-	matrix = (char *)malloc(count);
-	while (i < size)
+	total = count * size;
+	ret = (char *)malloc(total);
+	if (ret == NULL)
+		return (NULL);
+	while (i < (int)size)
 	{
-		matrix[i] = *(char *)malloc(size);
+		ret[i] = '\0';
 		i++;
 	}
-	return (matrix);
+	return (ret);
 }
-/*
+
 int	main(void)
 {
+	size_t	i;
 	size_t	files = 3;
 	size_t	columnes = 2;
-	char	*matrix;	
+	char	*result;	
 
-	matrix = ft_calloc(files, columnes);
-	matrix = calloc(files, columnes);
+	i = 0;
+	result = ft_calloc(files, columnes);
+	printf("Result meu: ");
+	while (i < (files * columnes))
+	{	
+		printf("%d", result[i]);
+		i++;
+	}
+	printf("\n");
+	i = 0;
+	result = calloc(files, columnes);
+	printf("Result og: ");
+	while (i < (files * columnes))
+	{	
+		printf("%d", result[i]);
+		i++;
+	}
+	printf("\n");
+	free (result);
+	return (0);
 }
-*/
+

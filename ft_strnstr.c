@@ -20,7 +20,7 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 
 	i = 0;
 	j = 0;
-	while (i < len)
+	while (i < (int)len)
 	{
 		result = &((char *)haystack)[i];
 		j = 0;
