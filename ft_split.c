@@ -6,94 +6,131 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 14:50:03 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:31:49 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	count_tokens(char const *s, char c, size_t *files, size_t *columnes)
+int	count_tokens(char const *s, char c)
 {
 	int	new_word;
-	int	word_len;
 	int	i;
 
 	i = 0;
 	new_word = 0;
-	word_len = 0;
-	while(s[i] != '\0')
+	if (s[i] == c)
 	{
-		if (s[i] == c)
-		{
-			new_word = 0;
-			word_len = 0;
-		}	
-		else
-		{	
-			if (new_word == 0)
-				*files = *files + 1;
-			word_len++;
-			if (*columnes < word_len)
-				*columnes = word_len;
-		}
+		while(s[i] == c)
+			i++;
 	}
-	word_len++;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c && s[i + 1] != c || s[i + 1] == '\0')
+			new_word++;
+		i++;
+	}
+	return (new_word);
 }
 
-void	fn_fill(char **matrix, char *s, char c)
+
+void	fn_fill(char *mat, char *s, char c) //modificar
 {
-	int	i;
-	int	fila;
-	int	columna;
+	int		i;
+	size_t	len;
 
 	i = 0;
-	fila = 0;
-	columna = 0;
-	while(s[i] != '\0')
+	len = 0;
+	if (*s == c)
 	{
-		while (s[i] == c)
-			i++;
-		while (s[i] != c && s[i] != '\0')
-		{
-			matrix[fila][columna] = s[i];
-			columna++;
-		}
-		matrix[fila][columna] = '\0';
-		fila++;
-		columna = 0;
-		i++;	
+		while(*s == c)
+			s++;
 	}
+	while (*s != c || *s != '\0')
+	{
+		mat[i] = *s;
+		s++;
+		i++;
+	}
+	printf("Mat: %s\nString que queda: %s\n\n", mat, s);
+}
+
+size_t	fn_word(const char *s, char c)
+{
+	int		i;
+	size_t	len;
+
+	i = 0;
+	len = 0;
+	if (s[i] == c)
+	{
+		while(s[i] == c)
+			i++;
+	}
+	while (s[i] != c || s[i] != '\0')
+	{
+		len++;
+		i++;
+	}
+	printf("Len : %zu\n", len);
+	return (len);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	size_t	*files;
-	size_t	*columnes;
+	size_t	files;
+	size_t	word_len;
 	char	**res;
 
 	i = 0;
-	*files = 0;
-	*columnes = 0;
-	count_tokens(s, c, files, columnes);
-
-	res = (char **)malloc(*files);
-	while (i < *columnes)
+	files = 0;
+	word_len = 0;
+	int words = count_tokens(s, c);
+	res = (char **)malloc(sizeof(char *) * words + 1);
+	while (i <= files)
 	{
-		res[i] = (char *)malloc(*columnes);
+		word_len = fn_word(s, c);
+		res[i] = (char *)malloc(word_len + 1); 
+		fn_fill(res[i], (char *)s, c);
+		i++;
 	}
-	fn_fill(res, s, c);
+	//funcio que guardi cada paraula (recorda posar el '\0' al final despres de copiarla)
+	if (!res)
+	{
+		while (files > 0)
+			free(res[files--]);
+		free(res);
+	}
+	res[words + 1] = NULL;
 	return (res);
 }
 
-int	main(int argc, char **argv)
+int	main(void)
 {
-	char	**result;
-	
-	result = ft_split(argv[1], argv[2][0]);
-	while (
-	printf("Result = %s\n", result[i]);
-	
-	/*El free no esta be, sha de fer dins d un bucle*/free(result);
+	int 		i;
+	int			num = 3;
+	char const	str[] = "    hola      bon dia   ";
+	char		c = ' ';
+	char		**result;
+	char		test[3][5];
+
+//PRUEBA fill	fn_fill(test, str, c, 3, 5);
+
+	i = 0;
+	result = ft_split(str, c);
+	while (result[i])
+	{
+		printf("Result = %s\n", result[i]);
+		i++;
+	}
+	i = 0;
+	while ( i < num)
+	{
+		free(result[i]);
+		i++;
+	}	
+	free(result);
 	return (0);
 }
+

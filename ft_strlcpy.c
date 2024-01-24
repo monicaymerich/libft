@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:13:34 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/17 14:50:09 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 18:21:51 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,11 +40,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (res);
 }
-/*
+
 int	main(void)
 {
 	char 	dst[10] = "Hola";
-	char 	src[10];
+	char 	src[10] = "Adeu";
 	size_t	size;
 	size_t	res;
 
@@ -58,4 +58,4 @@ int	main(void)
 	printf("Size despues: %zu\n", size);
 	return (0);
 }
-*/
+

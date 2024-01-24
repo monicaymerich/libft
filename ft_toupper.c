@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:29:20 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/17 15:13:13 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:07:59 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	ft_toupper(int c) //Converteix en majuscula una lletra minuscula
 		c = c - ' ';
 	return (c);
 }
-
+/*
 int	main(void)
 {
 	char	test;
@@ -31,3 +31,4 @@ int	main(void)
 	printf("Res funcio original: %c\n", res);
 	return (0);
 }
+*/

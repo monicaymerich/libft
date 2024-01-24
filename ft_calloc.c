@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 14:50:06 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 16:01:35 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	*ft_calloc(size_t count, size_t size)
 	}
 	return (ret);
 }
-
+/*
 int	main(void)
 {
 	size_t	i;
@@ -59,3 +59,4 @@ int	main(void)
 	free (result);
 	return (0);
 }
+*/
