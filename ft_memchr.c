@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:50:27 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/18 15:53:55 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:44:51 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t		i;
+	size_t	i;
 	char	*aux;
 
 	aux = NULL;

@@ -6,7 +6,7 @@
 #    By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:38:51 by maymeric          #+#    #+#              #
-#    Updated: 2024/01/22 17:40:05 by maymeric         ###   ########.fr        #
+#    Updated: 2024/01/24 13:13:17 by maymeric         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,7 @@ SRC = ft_isalpha.c \
       ft_atoi.c \
       ft_calloc.c \
       ft_strdup.c 
-	#afegir els que falten
+#afegir els que falten
 
 OBJS = $(SRC:.c=.o)
 #variable objs seran todos los .c convertidos a .o
@@ -46,17 +46,19 @@ CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 
-all: $(NAME)
 
-%.o : %.c $(HEADER)
+%.o: %.c $(HEADER)
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all: $(NAME)
 
 #$(CC) $(CFLAGS)
 
-$(NAME) : $(SRC) $(OBJS)
-	ar -rcs $(NAME) $(SRC)
+$(NAME) : $(OBJS)
+	ar -rcs $(NAME) $(OBJS)
 
 clean:
-	rm -f *.o
+	rm -f $(OBJS)
 
 #clean es una regla sin dependencias, por eso no tiene nada después de los dos puntos, elimina todos los .o
 

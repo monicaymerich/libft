@@ -6,15 +6,15 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 17:26:37 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:44:09 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size) //multiplicar count * size mateix q malloc pero plenar de 0
+void	*ft_calloc(size_t count, size_t size)
 {
-	size_t		total;
+	size_t	total;
 	char	*ret;
 	int		i;
 
@@ -30,7 +30,7 @@ void	*ft_calloc(size_t count, size_t size) //multiplicar count * size mateix q m
 	}
 	return (ret);
 }
-
+/*
 int	main(void)
 {
 	size_t	i;
@@ -59,4 +59,4 @@ int	main(void)
 	free (result);
 	return (0);
 }
-
+*/

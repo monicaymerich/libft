@@ -6,13 +6,19 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 17:26:35 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 12:57:04 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t count, size_t size); //fa count files de size columnes
+int	count_tokens(char const *s, char c)
+{
+	int	tokens;
+
+	tokens = 0;
+	whi
+}
 
 char	**ft_split(char const *s, char c)
 {
