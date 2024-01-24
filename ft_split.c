@@ -6,47 +6,94 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 12:57:04 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/24 14:50:03 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_tokens(char const *s, char c)
+void	count_tokens(char const *s, char c, size_t *files, size_t *columnes)
 {
-	int	tokens;
+	int	new_word;
+	int	word_len;
+	int	i;
 
-	tokens = 0;
-	whi
+	i = 0;
+	new_word = 0;
+	word_len = 0;
+	while(s[i] != '\0')
+	{
+		if (s[i] == c)
+		{
+			new_word = 0;
+			word_len = 0;
+		}	
+		else
+		{	
+			if (new_word == 0)
+				*files = *files + 1;
+			word_len++;
+			if (*columnes < word_len)
+				*columnes = word_len;
+		}
+	}
+	word_len++;
+}
+
+void	fn_fill(char **matrix, char *s, char c)
+{
+	int	i;
+	int	fila;
+	int	columna;
+
+	i = 0;
+	fila = 0;
+	columna = 0;
+	while(s[i] != '\0')
+	{
+		while (s[i] == c)
+			i++;
+		while (s[i] != c && s[i] != '\0')
+		{
+			matrix[fila][columna] = s[i];
+			columna++;
+		}
+		matrix[fila][columna] = '\0';
+		fila++;
+		columna = 0;
+		i++;	
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	size_t	files;
-	size_t	columnes;
-	char	*res;
+	size_t	*files;
+	size_t	*columnes;
+	char	**res;
 
 	i = 0;
-	files = 0;
-	//Contar cuantes paraules reals hi ha i quina es la llargada maxima
-	while (s[i] != '\0')
+	*files = 0;
+	*columnes = 0;
+	count_tokens(s, c, files, columnes);
+
+	res = (char **)malloc(*files);
+	while (i < *columnes)
 	{
-		if (s[i] == c)
-			files++;
-		else
-			columnes++;
+		res[i] = (char *)malloc(*columnes);
 	}
-	res = fer matriu de (files, columnes); //Perque el calloc retorna un 'unic punter si haurien de ser dos?
-	//falta guardar cada paraula en el seu lloc
+	fn_fill(res, s, c);
 	return (res);
 }
 
 int	main(int argc, char **argv)
 {
-	char **result;
-	result = ft_split(argv[1], argv[2]);
-	printf("Result = %s\n", result[0]);
-	free(result);
+	char	**result;
+	
+	result = ft_split(argv[1], argv[2][0]);
+	while (
+	printf("Result = %s\n", result[i]);
+	
+	/*El free no esta be, sha de fer dins d un bucle*/free(result);
 	return (0);
 }
