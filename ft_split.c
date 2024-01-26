@@ -21,38 +21,35 @@ int	count_tokens(char const *s, char c)
 	new_word = 0;
 	if (s[i] == c)
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
 	}
 	while (s[i] != '\0')
 	{
-		if (s[i] == c && s[i + 1] != c || s[i + 1] == '\0')
+		if ((s[i] == c && s[i + 1] != c) || s[i + 1] == '\0')
 			new_word++;
 		i++;
 	}
 	return (new_word);
 }
 
-
-void	fn_fill(char *mat, char *s, char c) //modificar
+void	fn_fill(char *mat, char *s, char c, int *pos)
 {
 	int		i;
-	size_t	len;
 
 	i = 0;
-	len = 0;
-	if (*s == c)
+	if (s[*pos] == c)
 	{
-		while(*s == c)
-			s++;
+		while (s[*pos] == c)
+			*pos = *pos + 1;
 	}
-	while (*s != c || *s != '\0')
+	while (s[*pos] != c && s[*pos] != '\0')
 	{
-		mat[i] = *s;
-		s++;
+		mat[i] = s[*pos];
+		*pos = *pos + 1;
 		i++;
 	}
-	printf("Mat: %s\nString que queda: %s\n\n", mat, s);
+	mat[i] = '\0';
 }
 
 size_t	fn_word(const char *s, char c)
@@ -62,50 +59,63 @@ size_t	fn_word(const char *s, char c)
 
 	i = 0;
 	len = 0;
+	if (!s)
+		return (len);
 	if (s[i] == c)
 	{
-		while(s[i] == c)
+		while (s[i] == c)
 			i++;
 	}
-	while (s[i] != c || s[i] != '\0')
+	while (s[i] != c && s[i] != '\0')
 	{
 		len++;
 		i++;
 	}
-	printf("Len : %zu\n", len);
 	return (len);
+}
+
+void	mat_free(char **mat, int n)
+{
+	if (!mat)
+	{
+		while (n > 0)
+		{
+			free (mat[n]);
+			n--;
+		}
+		free (mat);
+	}
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int		i;
-	size_t	files;
+	int		words;
+	int		pos;
 	size_t	word_len;
 	char	**res;
 
 	i = 0;
-	files = 0;
+	pos = 0;
 	word_len = 0;
-	int words = count_tokens(s, c);
+	words = count_tokens(s, c);
 	res = (char **)malloc(sizeof(char *) * words + 1);
-	while (i <= files)
+	if (!res)
+		return (res);
+	while (i <= words)
 	{
 		word_len = fn_word(s, c);
-		res[i] = (char *)malloc(word_len + 1); 
-		fn_fill(res[i], (char *)s, c);
+		res[i] = (char *)malloc(word_len + 1);
+		if (i < words)
+			fn_fill(res[i], (char *)s, c, &pos);
+		else if (i == words)
+			res[i] = '\0';
 		i++;
 	}
-	//funcio que guardi cada paraula (recorda posar el '\0' al final despres de copiarla)
-	if (!res)
-	{
-		while (files > 0)
-			free(res[files--]);
-		free(res);
-	}
-	res[words + 1] = NULL;
+	mat_free(res, words);
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	int 		i;
@@ -114,16 +124,17 @@ int	main(void)
 	char		c = ' ';
 	char		**result;
 	char		test[3][5];
-
-//PRUEBA fill	fn_fill(test, str, c, 3, 5);
+	int		n_words;
 
 	i = 0;
 	result = ft_split(str, c);
+	printf("Resultat =");
 	while (result[i])
 	{
-		printf("Result = %s\n", result[i]);
+		printf(" %s", result[i]);
 		i++;
 	}
+	printf("\n");
 	i = 0;
 	while ( i < num)
 	{
@@ -133,4 +144,4 @@ int	main(void)
 	free(result);
 	return (0);
 }
-
+*/

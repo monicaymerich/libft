@@ -27,7 +27,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 /*
 int	main(void)
 {
-	char	*src = "Hola";
+	char	*src = 'HOLA';
 	char	*dest;	
 	char	*test;
 	size_t	n = 6;

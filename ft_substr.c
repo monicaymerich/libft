@@ -19,9 +19,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 
 	i = 0;
 	j = 0;
-	while (s[i] != start && s[i] != '\0')
+	while (s[i] != (char)start && s[i] != '\0')
 		i++;
-	if (s[i] == start)
+	if (s[i] == (char)start)
 	{
 		substring = (char *)malloc(len);
 		while (s[i] != '\0')

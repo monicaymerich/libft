@@ -40,7 +40,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (res);
 }
-
+/*
 int	main(void)
 {
 	char 	dst[10] = "Hola";
@@ -58,4 +58,4 @@ int	main(void)
 	printf("Size despues: %zu\n", size);
 	return (0);
 }
-
+*/
