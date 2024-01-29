@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/29 13:42:38 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/29 16:28:23 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,21 +106,22 @@ char	**ft_split(char const *s, char c)
 	{
 		word_len = fn_word(s, c);
 		res[i] = (char *)malloc(word_len + 1);
-		if (i < words)
+		if (!res[i])
+		   mat_free(res, i-1);	
+		else if (i < words)
 			fn_fill(res[i], (char *)s, c, &pos);
 		else if (i == words)
-			res[i] = "\0";
+			res[i] = NULL;
 		i++;
 	}
-	mat_free(res, words);
 	return (res);
 }
-/*
+
 int	main(void)
 {
 	int 		i;
 	int			num = 3;
-	char const	str[] = "    hola      bon dia   ";
+	char const	str[] = "holaaa";
 	char		c = ' ';
 	char		**result;
 
@@ -142,4 +143,4 @@ int	main(void)
 	free(result);
 	return (0);
 }
-*/
+
