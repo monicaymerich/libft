@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 18:31:49 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/29 13:42:38 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ char	**ft_split(char const *s, char c)
 		if (i < words)
 			fn_fill(res[i], (char *)s, c, &pos);
 		else if (i == words)
-			res[i] = '\0';
+			res[i] = "\0";
 		i++;
 	}
 	mat_free(res, words);
@@ -123,8 +123,6 @@ int	main(void)
 	char const	str[] = "    hola      bon dia   ";
 	char		c = ' ';
 	char		**result;
-	char		test[3][5];
-	int		n_words;
 
 	i = 0;
 	result = ft_split(str, c);

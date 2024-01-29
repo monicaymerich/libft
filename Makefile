@@ -6,7 +6,7 @@
 #    By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:38:51 by maymeric          #+#    #+#              #
-#    Updated: 2024/01/24 13:13:17 by maymeric         ###   ########.fr        #
+#    Updated: 2024/01/29 13:49:45 by maymeric         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,11 +37,7 @@ SRC = ft_isalpha.c \
       ft_atoi.c \
       ft_calloc.c \
       ft_strdup.c \
-      ft_substr.c \
-      ft_strjoin.c \
-      ft_strtrim.c \
-      ft_split.c 
-#afegir els que falten
+#afegir els que falten 
 
 OBJS = $(SRC:.c=.o)
 #variable objs seran todos los .c convertidos a .o

@@ -1,41 +1,87 @@
-#include <stdio.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/01/29 12:30:57 by maymeric          #+#    #+#             */
+/*   Updated: 2024/01/29 13:49:05 by maymeric         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-char    *ft_itoa(int n)
+#include "libft.h"
+
+int	ft_len(int n)
 {
-    int     i;
-    int     len;
-    char    *num;
+	int	len;
 
-    i = 0;
-    len = 10;   //Calcular llargada de n en chars
-    num = malloc(sizeof(int) * len)
-    if (n < 0)
-    {
-        char[i] = '-';
-        n = n * (- 1);
-        i++;
-    }
-    // if (n == MAX); quin es el max?
-    if (n > 10)
-    {
-        *num = ft_itoa(n % 10);
-        n = n / 10;
-    }
-    else if (n < 10)
-    {
-        num[i] = n + '0';
-        i++;
-    }
-    return (num);
+	len = 0;
+	while (n > 10)
+	{
+		len++;
+		n = n / 10;
+	}
+	return (len);
 }
 
-int main(void)
+int	get_exp(int n)
 {
-    int test;
-    char result[20];
+	int	exp;
 
+	exp = 1;
+	while (n > 9)
+	{
+		n = n / 10;
+		exp = exp * 10;
+	}
+	return (exp);
+}
+
+char	*ft_itoa(int n)
+{
+	int		i;
+	int		len;
+	int		exp;
+	int		aux;
+	char	*num;
+
+	i = 0;
+	len = ft_len(n);
+	num = malloc(sizeof(char) * len + 1);
+	if (n == -2147483648)
+	{
+		num = "-2147483648";
+		return (num);
+	}
+	if (n < 0)
+	{
+		num[i] = '-';
+		n = -n;
+		i++;
+	}
+	while (n)
+	{
+		exp = get_exp(n);
+		aux = n / exp;
+		num[i] = aux + '0';
+		num = num - aux * exp;
+		i++;
+	}
+	num[i] = '\0';
+	return (num);
+}
+/*
+int	main(void)
+{
+    int		test;
+    char	result[20];
+	char	*res;
+
+	res = result;
     test = 980;
-    result = ft_itoa(test);
+    res = ft_itoa(test);
     printf("Resultat en char %s\n Hauria de ser %d\n", result, test);
     return (0);
 }
+*/
