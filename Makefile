@@ -6,7 +6,7 @@
 #    By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:38:51 by maymeric          #+#    #+#              #
-#    Updated: 2024/01/29 16:17:06 by maymeric         ###   ########.fr        #
+#    Updated: 2024/01/30 18:19:25 by maymeric         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,7 +37,13 @@ SRC = ft_isalpha.c \
       ft_atoi.c \
       ft_calloc.c \
       ft_strdup.c \
-	  ft_split.c
+	  ft_substr.c \
+	  ft_strjoin.c \
+	  ft_strtrim.c \
+	  ft_split.c \
+	  ft_itoa.c
+
+
 #afegir els que falten 
 
 OBJS = $(SRC:.c=.o)
