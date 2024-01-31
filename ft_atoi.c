@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:50:56 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:23:43 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:29:14 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@ int	ft_atoi(const char *str)
 	i = 0;
 	res = 0;
 	sign = 1;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '+' && str[i + 1] != '-')
+		i++;
 	if (str[i] == '-')
 	{
 		sign = -1;
@@ -34,13 +38,14 @@ int	ft_atoi(const char *str)
 	return (res * sign);
 }
 /*
-int	main(int argc, char **argv)
+int	main(void)
 {
-	int	numint;
+	const char	test[] = "+-24";
+	int			numint;
 
-	numint = ft_atoi(argv[1]);
+	numint = ft_atoi(test);
 	printf("Meu atoi: %d\n", numint);
-	numint = atoi(argv[1]);
+	numint = atoi(test);
 	printf("Atoi original: %d\n", numint);
 	return(0);
 }

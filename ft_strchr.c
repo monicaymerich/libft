@@ -6,29 +6,31 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:17:10 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/17 15:42:48 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/31 11:10:14 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strchr(char *s, int c) //era const char
+char	*ft_strchr(const char *s, int c)
 {
-	int	i;
+	int		i;
+	char	*res;
 
 	i = 0;
-	while (s[i] != c && s[i] != '\0')
-		i++;
-	if (s[i] == c)
-		return (&s[i]);
+	res = (char *)s;
+	while (*res != c && *res != '\0')
+		res++;
+	if (*res == c)
+		return (res);
 	return (NULL);
 }
 /*
 int	main(void)
 {
-	char	test[20] = "Hola";
+	char	test[20] = "teste";
 	char	*res;
-	int		c = 'l';
+	int		c = 'e';
 
 	res = ft_strchr(test, c);
 	printf("res = %s\n", res);

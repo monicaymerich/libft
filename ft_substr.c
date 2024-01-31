@@ -6,42 +6,42 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 12:26:48 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/30 18:27:24 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:28:01 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int		i;
-	int		j;
+	size_t	i;
 	char	*substring;
 
 	i = 0;
-	j = 0;
-	substring = (char *)malloc(len);
-	while (s[i] != (char)start && s[i] != '\0')
-		i++;
-	if (s[i] == (char)start)
+	if (ft_strlen(s) < start)
+		len = 0;
+	else if (ft_strlen(s) < start + len)
+		len = ft_strlen(s) - start;
+	substring = malloc(sizeof(char) * (len + 1));
+	if (!substring)
+		return (NULL);
+	while (i < len)
 	{
-		while (s[i] != '\0')
-		{
-			substring[j] = s[i];
-			i++;
-			j++;
-		}
-		substring[j] = '\0';
+		substring[i] = s[start];
+		i++;
+		start++;
 	}
+	substring[i] = '\0';
 	return (substring);
 }
 /*
-int	main(int argc, char **argv)
+int	main(void)
 {
-	char	*res;
-	
-	res = ft_substr(argv[1], 'o', 10);	
-	printf("Resultat substr= %s\n", res);
+   char	test[] = "HolaholaABCDEFGHIJ";
+   char	*res;
 
-	return (0);
+   res = ft_substr(test, 0, 0);	
+   printf("Resultat substr= %s\n", res);
+
+   return (0);
 }
 */

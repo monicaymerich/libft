@@ -6,25 +6,24 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:47:55 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:14:00 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/31 14:49:11 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+char	*fn_aux(int len, char *haystack, char *needle, char *result)
 {
-	int		i;
-	int		j;
-	char	*result;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
-	while (i < (int)len)
+	while (i < len)
 	{
-		result = &((char *)haystack)[i];
+		result = &haystack[i];
 		j = 0;
-		while (haystack[i] == needle [j])
+		while (haystack[i] == needle [j] && i < (int)len)
 		{
 			i++;
 			j++;
@@ -37,13 +36,30 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	}
 	return (NULL);
 }
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
+{
+	int		i;
+	char	res_v;
+	char	*result;
+
+	result = &res_v;
+	i = 0;
+	result[i] = '\0';
+	if (*haystack == '\0')
+		return (result);
+	else if (*needle == '\0')
+		return ((char *)haystack);
+	result = fn_aux((int)len, (char *)haystack, (char *)needle, result);
+	return (result);
+}
 /*
 int	main(void)
 {
-	char frase[20] = "Hola que tal?";
-	char palabra[10] = "moni";	
+	char frase[] = "lorem ipsum dolor sit amet";
+	char palabra[10] = "dolor";	
 	char	*result;
-	size_t	size = 13;
+	size_t	size = 15;
 
 	result = ft_strnstr(frase, palabra, size);
 	printf("Res: %s\n", result);

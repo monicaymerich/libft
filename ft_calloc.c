@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 16:01:35 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/01/31 13:02:29 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@ void	*ft_calloc(size_t count, size_t size)
 
 	i = 0;
 	total = count * size;
-	ret = (char *)malloc(total);
-	if (ret == NULL)
-		return (NULL);
-	while (i < (int)size)
+	ret = malloc(total);
+	if (!ret)
 	{
-		ret[i] = '\0';
-		i++;
+		free (ret);
+		return (NULL);
 	}
-	return (ret);
+	ft_bzero(ret, total);
+	return ((void *)ret);
 }
 /*
 int	main(void)
 {
 	size_t	i;
-	size_t	files = 3;
-	size_t	columnes = 2;
+	size_t	files = 0;
+	size_t	columnes = 10;
 	char	*result;	
 
 	i = 0;
