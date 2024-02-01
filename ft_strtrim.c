@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:17:34 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 13:27:46 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/01 13:51:57 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 	j = (int)ft_strlen(s1) - 1;
 	while (check_match(s1[i], set) == 1)
 		i++;
-   	while (check_match(s1[j], set) == 1)
+   	while (j >= 0 && check_match(s1[j], set) == 1 && j > i)
 		j--;
-	len = j - i;
+	len = j - i + 1;
 	result = (char *)malloc(len + 1);
 	if (!result)
 		return (NULL);
@@ -58,14 +58,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	result[k] = '\0';
 	return (result);
 }
-
+/*
 int	main(void)
 {
-	char	test[] = "alkjsflskjdfnskldfasofjas;ff";
-	char	tr[] = "j";
+	char	test[] = "aa";
+	char	tr[] = "aa";
 	char	*result;
+
 
 	result = ft_strtrim(test, tr);
 	printf("Result: |%s|\n", result);
 	return (0);
 }
+*/
