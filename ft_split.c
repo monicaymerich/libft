@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 17:17:32 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:28:26 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,13 +104,13 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (NULL);
 	words = count_tokens(s, c);
-	res = (char **)malloc(sizeof(char *) * (words + 1));
+	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
-		return (res);
+		return (NULL);
 	while (i < words)
 	{
 		word_len = fn_word(s, c, pos);
-		res[i] = (char *)malloc(word_len + 1);
+		res[i] = malloc(sizeof(char) * (word_len + 1));
 		if (!res[i])
 			mat_free(res, i - 1);
 		else if (i < words)
@@ -121,18 +121,22 @@ char	**ft_split(char const *s, char c)
 	return (res);
 }
 /*
-   int	main(void)
+  int	main(void)
    {
    int 		i;
-   int			num = 4;
-   char const	str[] = "hola\0que\0tal\0";
-   char		c = '\0';
+   //int			num;
+   char const	*str = 0;
+   //char		c = '';
    char		**result;
 
    i = 0;
-   result = ft_split(str, c);
+   //num = count_tokens(str, 0);
+   printf("Count words: %d\n", 0);
+   result = ft_split(str,0);
+  if(result[0] == NULL)
+	   printf("ERROR\n");
    if (!result)
-   return (0);
+   		return (0);
    printf("Resultat =\n");
    while (result[i])
    {
