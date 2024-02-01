@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:17:10 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 11:10:14 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/01 16:35:53 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,8 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	int		i;
 	char	*res;
 
-	i = 0;
 	res = (char *)s;
 	while (*res != c && *res != '\0')
 		res++;
