@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/29 16:28:23 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/01 17:17:32 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int	count_tokens(char const *s, char c)
 
 	i = 0;
 	new_word = 0;
+	if (!s)
+		return (0);
 	if (s[i] == c)
 	{
 		while (s[i] == c)
@@ -38,38 +40,39 @@ void	fn_fill(char *mat, char *s, char c, int *pos)
 	int		i;
 
 	i = 0;
-	if (s[*pos] == c)
+	if (s)
 	{
-		while (s[*pos] == c)
+		if (s[*pos] == c)
+		{
+			while (s[*pos] == c)
+				*pos = *pos + 1;
+		}
+		while (s[*pos] != c && s[*pos] != '\0')
+		{
+			mat[i] = s[*pos];
 			*pos = *pos + 1;
+			i++;
+		}
+		mat[i] = '\0';
 	}
-	while (s[*pos] != c && s[*pos] != '\0')
-	{
-		mat[i] = s[*pos];
-		*pos = *pos + 1;
-		i++;
-	}
-	mat[i] = '\0';
 }
 
-size_t	fn_word(const char *s, char c)
+size_t	fn_word(const char *s, char c, int pos)
 {
-	int		i;
 	size_t	len;
 
-	i = 0;
 	len = 0;
 	if (!s)
 		return (len);
-	if (s[i] == c)
+	if (s[pos] == c)
 	{
-		while (s[i] == c)
-			i++;
+		while (s[pos] == c)
+			pos++;
 	}
-	while (s[i] != c && s[i] != '\0')
+	while (s[pos] != c && s[pos] != '\0')
 	{
 		len++;
-		i++;
+		pos++;
 	}
 	return (len);
 }
@@ -98,49 +101,51 @@ char	**ft_split(char const *s, char c)
 	i = 0;
 	pos = 0;
 	word_len = 0;
+	if (!s)
+		return (NULL);
 	words = count_tokens(s, c);
-	res = (char **)malloc(sizeof(char *) * words + 1);
+	res = (char **)malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (res);
-	while (i <= words)
+	while (i < words)
 	{
-		word_len = fn_word(s, c);
+		word_len = fn_word(s, c, pos);
 		res[i] = (char *)malloc(word_len + 1);
 		if (!res[i])
-		   mat_free(res, i-1);	
+			mat_free(res, i - 1);
 		else if (i < words)
 			fn_fill(res[i], (char *)s, c, &pos);
-		else if (i == words)
-			res[i] = NULL;
 		i++;
 	}
+	res[i] = NULL;
 	return (res);
 }
+/*
+   int	main(void)
+   {
+   int 		i;
+   int			num = 4;
+   char const	str[] = "hola\0que\0tal\0";
+   char		c = '\0';
+   char		**result;
 
-int	main(void)
-{
-	int 		i;
-	int			num = 3;
-	char const	str[] = "holaaa";
-	char		c = ' ';
-	char		**result;
-
-	i = 0;
-	result = ft_split(str, c);
-	printf("Resultat =");
-	while (result[i])
-	{
-		printf(" %s", result[i]);
-		i++;
-	}
-	printf("\n");
-	i = 0;
-	while ( i < num)
-	{
-		free(result[i]);
-		i++;
-	}	
-	free(result);
-	return (0);
-}
-
+   i = 0;
+   result = ft_split(str, c);
+   if (!result)
+   return (0);
+   printf("Resultat =\n");
+   while (result[i])
+   {
+   printf("- %s\n", result[i]);
+   i++;
+   }
+   i = 0;
+   while (result[i])
+   {
+   free(result[i]);
+   i++;
+   }	
+   free(result);
+   return (0);
+   }
+   */
