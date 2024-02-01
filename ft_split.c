@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 19:28:26 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/01 19:38:10 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ int	count_tokens(char const *s, char c)
 
 	i = 0;
 	new_word = 0;
-	if (!s)
-		return (0);
+	/*if (!s)
+		return (0);*/
 	if (s[i] == c)
 	{
 		while (s[i] == c)
