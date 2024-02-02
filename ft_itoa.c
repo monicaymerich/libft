@@ -6,12 +6,13 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:30:57 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 18:27:00 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/02 19:30:53 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-int	ft_len(int n)
+
+static int	ft_len(int n)
 {
 	int	len;
 
@@ -25,44 +26,51 @@ int	ft_len(int n)
 	return (len);
 }
 
+static int	check_sign(int *n)
+{
+	int	sign;
+
+	if (*n < 0)
+	{
+		sign = 1;
+		*n = -*n;
+	}
+	else
+		sign = 0;
+	return (sign);
+}
+
 char	*ft_itoa(int n)
 {
 	int		len;
-	int	sign;
+	int		sign;
 	char	*num;
-	
-	len = 0;
-	sign = 0;
-	if (n < 0)
-	{
-		sign = 1;
-		n = - n;
-	}
+
+	if (n == -2147483648)
+		return (ft_strdup("-2147483648"));
+	else if (n == 0)
+		return (ft_strdup("0"));
+	sign = check_sign(&n);
 	len = ft_len(n) + sign;
 	num = malloc(sizeof(char) * (len + 1));
 	if (!num)
 		return (NULL);
-	if (n == -2147483648)
-	{
-		num = "-2147483648";
-		return (num);
-	}
 	num[len] = '\0';
 	len--;
-	while(n)
+	while (n > 0)
 	{
 		num[len] = (n % 10) + '0';
 		n = n / 10;
 		len--;
 	}
 	if (sign == 1)
-		num[len] = '-';	
+		num[len] = '-';
 	return (num);
 }
 /*
 int	main(void)
 {
-	int		test = -23;
+	int		test = 0;
 	char	result[20];
 	char	*res;
 

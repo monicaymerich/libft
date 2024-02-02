@@ -6,18 +6,11 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 19:53:28 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/02 16:50:15 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-
-// "hola     que tal" -> 3
-// " hola     que tal" -> 3
-// "hola     que tal " -> 3
-// "          " -> 0
-// "" -> 0
 
 int	count_tokens(const char *s, char c)
 {
@@ -26,13 +19,6 @@ int	count_tokens(const char *s, char c)
 
 	i = 0;
 	new_word = 0;
-	// /*if (!s)
-	// 	return (0);*/
-	// if (s[i] == c)
-	// {
-	// 	while (s[i] == c)
-	// 		i++;
-	// }
 	while (s[i] != '\0')
 	{
 		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
@@ -109,7 +95,6 @@ char	**ft_split(const char *s, char c)
 	pos = 0;
 	word_len = 0;
 	words = count_tokens(s, c);
-	// printf("El numero de palabras es: %d\n", words);
 	res = malloc(sizeof(char *) * (words + 1));
 	if (!res)
 		return (NULL);
@@ -126,41 +111,36 @@ char	**ft_split(const char *s, char c)
 	res[i] = NULL;
 	return (res);
 }
+/*
+int	main(void)
+{
+	int 		i;
+	int			num;
+	char const	*str = "hello!";
+	char		c = ' ';
+	char		**result;
 
-  // int	main(void)
-  //  {
-  //  	printf("numero de palabras es: %d\n", count_tokens("hola      que tal", ' '));
-  //  	printf("numero de palabras es: %d\n", count_tokens(" hola      que tal", ' '));
-  //  	printf("numero de palabras es: %d\n", count_tokens("hola      que tal ", ' '));
-  //  	printf("numero de palabras es: %d\n", count_tokens("", ' '));
-  //  	printf("numero de palabras es: %d\n", count_tokens("          ", ' '));
-  // //  int 		i;
-  // //  int			num;
-  // //  char const	*str = "";
-
-  // //  char		**result;
-
-  // //  i = 0;
-  // //  num = count_tokens(str, ' ');
-  // //  printf("Count words: %d\n", num);
-  // //  result = ft_split(str,' ');
-  // // if(result[0] == NULL)
-	// //    printf("ERROR\n");
-  // //  if (!result)
-  // //  		return (0);
-  // //  printf("Resultat =\n");
-  // //  while (result[i])
-  // //  {
-  // //  printf("- %s\n", result[i]);
-  // //  i++;
-  // //  }
-  // //  i = 0;
-  // //  while (result[i])
-  // //  {
-  // //  free(result[i]);
-  // //  i++;
-  // //  }	
-  // //  free(result);
-  // //  return (0);
-  //  }
-   
+	i = 0;
+	num = count_tokens(str, ' ');
+	printf("Count words: %d\n", num);
+	result = ft_split(str,' ');
+	if(result[0] == NULL)
+		printf("ERROR\n");
+	if (!result)
+		return (0);
+	printf("Resultat =\n");
+	while (result[i])
+	{
+		printf("- %s\n", result[i]);
+		i++;
+	}
+	i = 0;
+	while (result[i])
+	{
+		free(result[i]);
+		i++;
+	}	
+	free(result);
+	return (0);
+}
+*/

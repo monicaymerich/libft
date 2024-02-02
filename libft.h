@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/09 15:20:05 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 11:01:12 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/02 20:02:57 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,12 +57,11 @@ void	ft_putstr_fd(char *s, int fd);
 void	ft_putendl_fd(char *s, int fd);
 void	ft_putnbr_fd(int n, int fd);
 
-typedef struct	s_list
+typedef struct s_list
 {
- void	*content;
- struct s_list	*next;
- 		t_list;
-}
+	void			*content;
+	struct s_list	*next;
+}	t_list;
 
 t_list	*ft_lstnew(void *content);
 
