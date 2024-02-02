@@ -16,9 +16,7 @@ void	*ft_calloc(size_t count, size_t size)
 {
 	size_t	total;
 	char	*ret;
-	int		i;
 
-	i = 0;
 	total = count * size;
 	ret = malloc(total);
 	if (!ret)
