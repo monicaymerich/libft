@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:52:40 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/22 12:22:09 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/05 12:27:39 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ char	*ft_strdup(const char *s1)
 		i++;
 	}
 	ret = (char *)malloc(i);
+	if (!ret)
+		return (NULL);
 	i = 0;
 	while (s1[i] != '\0')
 	{

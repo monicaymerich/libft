@@ -1,15 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lstsize_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/05 10:15:46 by maymeric          #+#    #+#             */
+/*   Updated: 2024/02/05 10:16:08 by maymeric         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 t_list	*ft_lstnew(void *content);
 
 int	ft_lstsize(t_list *lst)
 {
-	int	i;
+	int		i;
 	t_list	*aux;
 
 	i = 0;
 	aux = lst;
-	while(aux->next != NULL)
+	while (aux->next != NULL)
 		i++;
 	return (i);
 }

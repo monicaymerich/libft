@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 15:43:20 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 11:13:26 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/05 10:34:03 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ char	*ft_strrchr(const char *s, int c)
 /*
 int	main(void)
 {
-	char	test[20] = "Teste";
+	char	test[] = "Teste";
 	char	*res;
 	int		c = '\0';
 
