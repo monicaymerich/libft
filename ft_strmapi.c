@@ -6,13 +6,11 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:47:50 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/02 19:56:43 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:59:30 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {

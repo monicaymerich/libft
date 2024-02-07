@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 11:51:21 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 13:02:29 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:20:04 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@ void	*ft_calloc(size_t count, size_t size)
 	total = count * size;
 	ret = malloc(total);
 	if (!ret)
-	{
-		free (ret);
 		return (NULL);
-	}
 	ft_bzero(ret, total);
 	return ((void *)ret);
 }

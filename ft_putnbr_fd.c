@@ -6,14 +6,11 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 16:51:14 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/02 16:51:51 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:50:07 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-void	ft_putchar_fd(char c, int fd);
-void	ft_putstr_fd(char *s, int fd);
 
 void	ft_putnbr_fd(int n, int fd)
 {

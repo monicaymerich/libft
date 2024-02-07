@@ -6,32 +6,35 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 16:47:55 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 14:49:11 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/05 19:18:44 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*fn_aux(int len, char *haystack, char *needle, char *result)
+static char	*fn_aux(size_t len, char *haystack, char *needle)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
+	char	*result;
 
 	i = 0;
 	j = 0;
-	while (i < len)
+	while (i < len && haystack[i])
 	{
 		result = &haystack[i];
 		j = 0;
-		while (haystack[i] == needle [j] && i < (int)len)
+		while ((i + j) < len && haystack[i + j] && needle [j] \
+			&& haystack[i + j] == needle[j])
 		{
-			i++;
 			j++;
+			if (needle[j] == '\0')
+				return (result);
 		}
 		if (needle[j] == '\0')
-		{
 			return (result);
-		}
+		else if (haystack[i] == '\0')
+			return (NULL);
 		i++;
 	}
 	return (NULL);
@@ -46,24 +49,26 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	result = &res_v;
 	i = 0;
 	result[i] = '\0';
-	if (*haystack == '\0')
-		return (result);
-	else if (*needle == '\0')
+	if (*needle == '\0')
 		return ((char *)haystack);
-	result = fn_aux((int)len, (char *)haystack, (char *)needle, result);
+	else if (*haystack == '\0')
+		return (NULL);
+	result = fn_aux(len, (char *)haystack, (char *)needle);
 	return (result);
 }
 /*
 int	main(void)
 {
-	char frase[] = "lorem ipsum dolor sit amet";
-	char palabra[10] = "dolor";	
+	char *frase = strdup("abc");
+	char *palabra = strdup("abcdef");	
 	char	*result;
-	size_t	size = 15;
+	size_t	size = 10;
+	char haystack[30] = "aaabcabcd";
+	char needle[10] = "aabc";
 
-	result = ft_strnstr(frase, palabra, size);
+	result = ft_strnstr(haystack, needle, 5);
 	printf("Res: %s\n", result);
-	result = strnstr(frase, palabra, size);
+	result = strnstr(haystack, needle, 5);
 	printf("Res original: %s\n", result);
 	return (0);
 }

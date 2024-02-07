@@ -6,132 +6,103 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:34:07 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/02 16:50:15 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:58:52 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_tokens(const char *s, char c)
+static int	count_tokens(const char *s, char c)
 {
-	int	new_word;
-	int	i;
+	int	tokens;
+	int	i_token;
 
-	i = 0;
-	new_word = 0;
-	while (s[i] != '\0')
+	tokens = 0;
+	while (*s)
 	{
-		if (s[i] != c && (s[i + 1] == c || s[i + 1] == '\0'))
-			new_word++;
-		i++;
-	}
-	return (new_word);
-}
-
-void	fn_fill(char *mat, char *s, char c, int *pos)
-{
-	int		i;
-
-	i = 0;
-	if (s)
-	{
-		if (s[*pos] == c)
+		i_token = 0;
+		while (*s && *s == c)
+			++s;
+		while (*s && *s != c)
 		{
-			while (s[*pos] == c)
-				*pos = *pos + 1;
+			if (i_token == 0)
+			{
+				tokens++;
+				i_token++;
+			}
+			++s;
 		}
-		while (s[*pos] != c && s[*pos] != '\0')
-		{
-			mat[i] = s[*pos];
-			*pos = *pos + 1;
-			i++;
-		}
-		mat[i] = '\0';
 	}
+	return (tokens);
 }
 
-size_t	fn_word(const char *s, char c, int pos)
+static int	ft_word_len(const char *s, char c)
 {
-	size_t	len;
+	int	count;
 
-	len = 0;
-	if (!s)
-		return (len);
-	if (s[pos] == c)
-	{
-		while (s[pos] == c)
-			pos++;
-	}
-	while (s[pos] != c && s[pos] != '\0')
-	{
-		len++;
-		pos++;
-	}
-	return (len);
+	count = 0;
+	while (s[count] != c && s[count] != '\0')
+		count++;
+	return (count);
 }
 
-void	mat_free(char **mat, int n)
+static char	**mat_free(char **mat, int n)
 {
-	if (!mat)
+	if (!mat[n])
 	{
-		while (n > 0)
+		while (n >= 0)
 		{
-			free (mat[n]);
+			free(mat[n]);
 			n--;
 		}
 		free (mat);
 	}
+	return (NULL);
 }
 
 char	**ft_split(const char *s, char c)
 {
+	char	**matrix;
+	int		len;
 	int		i;
-	int		words;
-	int		pos;
-	size_t	word_len;
-	char	**res;
+	int		sl;
 
-	i = 0;
-	pos = 0;
-	word_len = 0;
-	words = count_tokens(s, c);
-	res = malloc(sizeof(char *) * (words + 1));
-	if (!res)
+	i = -1;
+	len = count_tokens(s, c);
+	matrix = (char **)malloc(sizeof(char *) * (len + 1));
+	if (!matrix)
 		return (NULL);
-	while (i < words)
+	while (++i < len)
 	{
-		word_len = fn_word(s, c, pos);
-		res[i] = malloc(sizeof(char) * (word_len + 1));
-		if (!res[i])
-			mat_free(res, i - 1);
-		else if (i < words)
-			fn_fill(res[i], (char *)s, c, &pos);
-		i++;
+		while (*s == c)
+			s++;
+		sl = ft_word_len((const char *)s, c);
+		matrix[i] = (char *)malloc(sizeof(char) * sl + 1);
+		if (!matrix[i])
+			return (mat_free(matrix, i));
+		ft_strlcpy(matrix[i], s, sl + 1);
+		s = (ft_strchr(s, (int)c));
 	}
-	res[i] = NULL;
-	return (res);
+	matrix[i] = 0;
+	return (matrix);
 }
 /*
-int	main(void)
+int	main(int argc, char **argv)
 {
 	int 		i;
-	int			num;
-	char const	*str = "hello!";
 	char		c = ' ';
 	char		**result;
 
 	i = 0;
-	num = count_tokens(str, ' ');
-	printf("Count words: %d\n", num);
-	result = ft_split(str,' ');
-	if(result[0] == NULL)
-		printf("ERROR\n");
+	(void)argc;
+	(void)argv;
+	result = ft_split(NULL, '.');
 	if (!result)
 		return (0);
 	printf("Resultat =\n");
 	while (result[i])
 	{
-		printf("- %s\n", result[i]);
+		printf("- |%s|\n", result[i]);
 		i++;
 	}
 	i = 0;

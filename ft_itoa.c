@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/29 12:30:57 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/02 19:30:53 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:26:33 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,8 +75,8 @@ int	main(void)
 	char	*res;
 
 	res = result;
+	(void)test;
 	res = ft_itoa(test);
 	printf("Resultat en char %s\n Hauria de ser %d\n", res, test);
 	return (0);
-}
-*/
+}*/

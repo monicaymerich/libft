@@ -6,13 +6,13 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/17 14:29:20 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 16:07:59 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/07 14:35:06 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_toupper(int c) //Converteix en majuscula una lletra minuscula
+int	ft_toupper(int c)
 {
 	if (c >= 'a' && c <= 'z')
 		c = c - ' ';

@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 14:50:27 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/05 10:44:19 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 19:28:35 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 
 	aux = NULL;
 	i = 0;
-	while (((unsigned char *)s)[i] && i < n)
+	while (i < n)
 	{
 		if (((unsigned char *)s)[i] == (unsigned char)c)
 		{
@@ -28,17 +28,15 @@ void	*ft_memchr(const void *s, int c, size_t n)
 		}
 		i++;
 	}
-	if (c == '\0')
-		aux = &((char *)s)[i];
 	return (aux);
 }
 /*
 int	main(void)
 {
-	char	test[10] = "Hola";
+	char	test[10] = "Hola\0ab";
 	char	*result;
-	int		c = '\0';
-	size_t	size = 8;
+	int		c = 'c';
+	size_t	size = 20;
 
 	result = ft_memchr((const void *)test, c, size);
 	printf("Result meu: %s\n", result);

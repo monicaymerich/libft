@@ -6,7 +6,7 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/05 10:15:23 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/05 10:15:26 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 20:37:13 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,3 @@ t_list	*ft_lstlast(t_list *lst)
 		aux = aux->next;
 	return (aux);
 }
-
-

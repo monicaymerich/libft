@@ -6,13 +6,13 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 14:13:34 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 18:21:51 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:31:04 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_len(const char *str)
+static size_t	ft_len(const char *str)
 {
 	int	i;
 

@@ -6,13 +6,11 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/16 16:53:11 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/24 16:40:51 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:31:45 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(const char *s);
 
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {

@@ -6,13 +6,11 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:03:33 by maymeric          #+#    #+#             */
-/*   Updated: 2024/01/31 15:00:04 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:44:16 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-
-size_t	ft_strlen(char const *s);
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {

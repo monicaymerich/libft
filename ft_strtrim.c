@@ -6,15 +6,13 @@
 /*   By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/22 15:17:34 by maymeric          #+#    #+#             */
-/*   Updated: 2024/02/01 13:55:05 by maymeric         ###   ########.fr       */
+/*   Updated: 2024/02/06 15:44:47 by maymeric         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s);
-
-int	check_match(char s1, char const *set)
+static int	check_match(char s1, char const *set)
 {
 	int	i;
 

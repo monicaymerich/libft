@@ -6,7 +6,7 @@
 #    By: maymeric <maymeric@student.42barcel>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/01/09 15:38:51 by maymeric          #+#    #+#              #
-#    Updated: 2024/02/02 19:33:38 by maymeric         ###   ########.fr        #
+#    Updated: 2024/02/07 12:29:28 by maymeric         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,7 @@ BONUS_SRC = ft_lstnew_bonus.c \
 	    ft_lstdelone_bonus.c \
 	    ft_lstclear_bonus.c \
 	    ft_lstiter_bonus.c \
-	    ft_lstmap_bonus.c
+		ft_lstmap_bonus.c
 
 OBJS = $(SRC:.c=.o)
 
@@ -75,11 +75,11 @@ $(NAME): $(OBJS)
 bonus: $(OBJS) $(BONUS_OBJ)
 	ar -rcs $(NAME) $(OBJS) $(BONUS_OBJ)
 
-%.o: %.c $(HEADER)
+%.o: %.c $(HEADER) Makefile
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	rm -f $(OBJS) $(BONUS_OBJ)
 
 #clean es una regla sin dependencias, por eso no tiene nada después de los dos puntos, elimina todos los .o
 
